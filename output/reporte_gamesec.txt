@@ -1,0 +1,58 @@
+======================================================================
+             REPORTE DE AUDITORÍA Y TELEMETRÍA — GAMESEC              
+======================================================================
+Fecha de generación: 26/10/2026
+
+[1] RESUMEN GLOBAL OPERATIVO
+----------------------------------------------------------------------
+Total de sesiones procesadas: 150
+Ping promedio global: 148.44 ms
+Duración media de partida: 29.39 min
+Partidas de alta competencia (Ranked/Torneo): 53.33%
+
+[2] RENDIMIENTO REGIONAL POR SERVIDOR
+----------------------------------------------------------------------
+Servidor           | Sesiones | Ping Promedio | FPS Promedio
+----------------------------------------------------------------------
+SA-BuenosAires     | 39       | 78.95 ms      | 90.85 fps
+EU-Frankfurt       | 42       | 199.07 ms     | 96.71 fps
+NA-Virginia        | 39       | 228.31 ms     | 91.08 fps
+SA-SaoPaulo        | 30       | 64.07 ms      | 84.60 fps
+
+[3] AUDITORÍA DE SEGURIDAD E INCIDENTES
+----------------------------------------------------------------------
+Distribución de estados de seguridad:
+  • Normales:    118 sesiones (78.67%)
+  • Sospechosos:  22 sesiones (14.67%)
+  • Críticos:     10 sesiones ( 6.67%)
+
+Detalle de Sesiones Críticas Detectadas:
+  [!] Sesión #8   | Jugador: User_646 | Servidor: SA-SaoPaulo
+      Motivo: Exceso de reportes por trampa (5) e intentos fallidos (5)
+  [!] Sesión #17  | Jugador: User_878 | Servidor: SA-BuenosAires
+      Motivo: Exceso de reportes por trampa (4) e intentos fallidos (5)
+  [!] Sesión #33  | Jugador: User_391 | Servidor: NA-Virginia
+      Motivo: Exceso de reportes por trampa (5) e intentos fallidos (4)
+  [!] Sesión #53  | Jugador: User_567 | Servidor: SA-BuenosAires
+      Motivo: Exceso de reportes por trampa (5) e intentos fallidos (7)
+  [!] Sesión #65  | Jugador: User_896 | Servidor: SA-BuenosAires
+      Motivo: Exceso de reportes por trampa (4) e intentos fallidos (7)
+  [!] Sesión #86  | Jugador: User_612 | Servidor: NA-Virginia
+      Motivo: Exceso de reportes por trampa (5) e intentos fallidos (6)
+  [!] Sesión #101 | Jugador: User_519 | Servidor: SA-SaoPaulo
+      Motivo: Exceso de reportes por trampa (5) e intentos fallidos (6)
+  [!] Sesión #123 | Jugador: User_436 | Servidor: SA-SaoPaulo
+      Motivo: Exceso de reportes por trampa (5) e intentos fallidos (5)
+  [!] Sesión #126 | Jugador: User_562 | Servidor: SA-BuenosAires
+      Motivo: Exceso de reportes por trampa (4) e intentos fallidos (4)
+  [!] Sesión #129 | Jugador: User_201 | Servidor: EU-Frankfurt
+      Motivo: Exceso de reportes por trampa (4) e intentos fallidos (7)
+
+[4] CONCLUSIONES TÉCNICAS DEL EQUIPO
+----------------------------------------------------------------------
+1. Calidad de servicio (Videojuegos): El cuello de botella de la experiencia de juego está en la infraestructura de red, no en el equipo del jugador: Mientras el ping promedio varía 3.5 veces entre regiones (64.07 ms en SA-SaoPaulo contra 228.31 ms en NA-Virginia), los FPS se mantienen homogéneos en todas ellas (entre 84.60 y 96.71). Dado que el 53.33% de las sesiones corresponde a modalidades Competitiva o Torneo, la latencia de las regiones del hemisferio norte compromete directamente la jugabilidad donde más impacta.
+2. Detección de incidentes (Ciberseguridad): Las dos condiciones del nivel Crítico no identifican poblaciones independientes: las 10 sesiones críticas detectadas cumplen simultáneamente el umbral de reportes por trampa (≥ 3) y el de intentos fallidos de autenticación (≥ 4). Esta coincidencia total sugiere un único patrón de comportamiento —compatible con cuentas comprometidas o con uso de herramientas automatizadas— antes que dos amenazas distintas, y justificaría evaluar una regla combinada con umbrales más bajos para detectar casos tempranos.
+3. Modelado de datos (IA - Datos): El clasificador por reglas procesa las 150 sesiones sin intervención manual y produce un dataset etiquetado en tres clases (118 normales, 22 sospechosas y 10 críticas), apto como insumo para entrenar un modelo supervisado. Su limitación es que los umbrales responden a criterios de negocio y no a la distribución observada: el corte de reportes por trampa está fijado en 3, valor que no aparece en ninguna sesión del dataset. Un modelo entrenado sobre estos datos podría ajustar esos cortes de forma empírica.
+======================================================================
+                       FIN DEL REPORTE GAMESEC                        
+======================================================================
